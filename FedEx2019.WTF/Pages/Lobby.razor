@@ -1,0 +1,19 @@
+﻿@page "/lobby"
+
+@using FedEx2019.WTF.Data
+@inject IGameService GameService
+
+<h1>Lobby</h1>
+
+@foreach (var player in GetPlayers())
+{
+    <p>@player</p>
+}
+
+@code
+{
+    private List<string> GetPlayers()
+    {
+        return GameService.GetGamePlayers(Guid.Empty);
+    }
+}

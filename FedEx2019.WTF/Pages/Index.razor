@@ -1,0 +1,31 @@
+﻿@page "/"
+
+@using FedEx2019.WTF.Data
+@using FedEx2019.WTF.Models
+@using Microsoft.AspNetCore.Components
+@inject NavigationManager NavigationManager
+@inject IGameService GameService
+
+<h1>Welcome to WTF</h1>
+
+<EditForm Model="@player" OnValidSubmit="@HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="playerName">Name:</label>
+    <InputText id="playerName" @bind-Value="player.Name" />
+    <button type="submit">Join</button>
+</EditForm>
+
+@code
+{
+    private Player player = new Player();
+
+    private void HandleSubmit()
+    {
+        var result = GameService.RegisterPlayer(Guid.Empty, player.Name);
+
+        NavigationManager.NavigateTo("/Lobby");
+    }
+
+}
