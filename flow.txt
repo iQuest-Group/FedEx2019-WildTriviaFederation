@@ -1,0 +1,18 @@
+Start Page
+	Name
+	Ready
+
+Lobby
+	View all player names that joined
+	Everybody can start game
+
+Contest
+	Question
+	Input for answer (numeric)
+	Submit
+		Start polling
+		Wait for all players to answer
+		Show correct answer
+		Show winner
+		Show points?
+		Continue to next question
